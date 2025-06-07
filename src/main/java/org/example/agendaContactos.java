@@ -10,7 +10,7 @@ import java.util.List;
  * <p> Permite añadir, eliminar y modificar teléfonos dentro de cada
  * {@link Persona }. Internamente mantiene una lista de contactos.</p>
  */
-public class agendaContactos {
+public class agendaContactos implements IAgenda {
     /**
      * Lista interna con todos los contactos de la agenda
       */
@@ -29,6 +29,7 @@ public class agendaContactos {
       * @param name nombre del contacto
      * @param phone número de teléffono que se quiere añadir
      */
+    @Override
     public void addContact(String name, String phone) {
         boolean exists = false;
         for (Persona c : contacts) {
@@ -50,6 +51,7 @@ public class agendaContactos {
      *
       * @param name nombre del contacto a borrar
      */
+    @Override
     public void removeContact(String name) {
         Iterator<Persona> it = contacts.iterator();
 
@@ -68,6 +70,7 @@ public class agendaContactos {
      * @param oldPhone teléfono que se va a sustituir
      * @param newPhone teléfono nuevo
      */
+    @Override
     public void modifyPhoneNumber(String name, String oldPhone, String newPhone) {
         for (Persona c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
@@ -87,6 +90,7 @@ public class agendaContactos {
      *
       * @return lista con todos los contactos
      */
+    @Override
     public List<Persona> getContacts() {
         return this.contacts;
     }
