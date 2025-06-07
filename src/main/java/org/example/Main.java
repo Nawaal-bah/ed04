@@ -3,7 +3,7 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         // Crear una nueva agenda.
-        Agenda agenda = new Agenda();
+        agendaContactos agenda = new agendaContactos();
 
         // Añadir contactos a la agenda.
         agenda.addContact("John Doe", "1234567890");
