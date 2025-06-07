@@ -8,13 +8,13 @@ import java.util.List;
  * Gestiona una colección de contactos (la agenda).
  *
  * <p> Permite añadir, eliminar y modificar teléfonos dentro de cada
- * {@link Contacto }. Internamente mantiene una lista de contactos.</p>
+ * {@link Persona }. Internamente mantiene una lista de contactos.</p>
  */
 public class agendaContactos {
     /**
      * Lista interna con todos los contactos de la agenda
       */
-    private List<Contacto> contacts; // Lista de Contacto
+    private List<Persona> contacts; // Lista de Contacto
 
     /**
      * Crea una agenda vacía
@@ -31,7 +31,7 @@ public class agendaContactos {
      */
     public void addContact(String name, String phone) {
         boolean exists = false;
-        for (Contacto c : contacts) {
+        for (Persona c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
                 exists = true;
                 c.getPhones().add(phone);
@@ -40,7 +40,7 @@ public class agendaContactos {
         }
 
         if (!exists) {
-            Contacto newContact = new Contacto(name, phone);
+            Persona newContact = new Persona(name, phone);
             contacts.add(newContact);
         }
     }
@@ -51,10 +51,10 @@ public class agendaContactos {
       * @param name nombre del contacto a borrar
      */
     public void removeContact(String name) {
-        Iterator<Contacto> it = contacts.iterator();
+        Iterator<Persona> it = contacts.iterator();
 
         while (it.hasNext()) {
-            Contacto c = it.next();
+            Persona c = it.next();
 
             if (c.getName().equalsIgnoreCase(name)) {
                 it.remove();
@@ -69,7 +69,7 @@ public class agendaContactos {
      * @param newPhone teléfono nuevo
      */
     public void modifyPhoneNumber(String name, String oldPhone, String newPhone) {
-        for (Contacto c : contacts) {
+        for (Persona c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
                 List<String> phones = c.getPhones();
 
@@ -87,7 +87,7 @@ public class agendaContactos {
      *
       * @return lista con todos los contactos
      */
-    public List<Contacto> getContacts() {
+    public List<Persona> getContacts() {
         return this.contacts;
     }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Representa un contacto con nombre y lista de teléfonos.
  */
-class Contacto {
+class Persona {
     private String name;
     private List<String> phones;
     /**
@@ -15,7 +15,7 @@ class Contacto {
      * @param name nombre del producto
      * @param phone primer número de teléfono
       */
-    public Contacto (String name, String phone) {
+    public Persona(String name, String phone) {
         this.setName(name);
         this.setPhones(new ArrayList<>());
         this.getPhones().add(phone);
