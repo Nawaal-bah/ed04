@@ -3,12 +3,7 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         // Crear una nueva agenda.
-        agendaContactos agenda = new agendaContactos();
-
-        // Añadir contactos a la agenda.
-        agenda.addContact("John Doe", "1234567890");
-        agenda.addContact("Jane Doe", "9876543210");
-        agenda.addContact("Mary Jane", "1122334455");
+        agendaContactos agenda = initAgenda();
 
         // Imprimir todos los contactos de la agenda.
         System.out.println("Todos los contactos: ");
@@ -29,5 +24,15 @@ public class Main {
         for (Contacto c : agenda.getContacts()) {
             System.out.println(c.getName() + " -> " + c.getPhones());
         }
+    }
+
+    private static agendaContactos initAgenda() {
+        agendaContactos agenda = new agendaContactos();
+
+        // Añadir contactos a la agenda.
+        agenda.addContact("John Doe", "1234567890");
+        agenda.addContact("Jane Doe", "9876543210");
+        agenda.addContact("Mary Jane", "1122334455");
+        return agenda;
     }
 }
